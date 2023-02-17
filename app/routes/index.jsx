@@ -1,7 +1,9 @@
+import PageBuilder from '../components/PageBuilder';
+
 export default function Index() {
   return (
     <main >  
-    main 
+      <PageBuilder />
     </main>
   );
 }
