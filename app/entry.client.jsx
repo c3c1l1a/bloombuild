@@ -3,9 +3,8 @@ import { startTransition, StrictMode } from "react";
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { hydrateRoot } from "react-dom/client";
-import rootReducer from './reducers';
-
-const store = createStore(rootReducer);
+import store from './redux/configureStore';
+console.log(store);
 
 const hydrate = () => {
   startTransition(() => {
