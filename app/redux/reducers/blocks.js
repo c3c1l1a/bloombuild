@@ -1,14 +1,31 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-const GET_ALL = 'message/GET_ALL';
-const initialState = [];
+const initialState = [
+	{ 
+		type: 'Column',
+		children: [
+			{ type: 'Text'},
+			{ type: 'Text'},
+			{ type: 'Text'},
+		]
+	},
+	{ 
+		type: 'Column',
+	}
+];
 
 
-const messagesSlice = createSlice({
-	name: 'message',
+const blocksSlice = createSlice({
+	name: 'blocks',
 	initialState,
-	reducers: {},
+	reducers: {
+		getAllBlocks(state, action){
+			console.log(state);
+			return state;
+		}
+	},
 });
 
 
-export default messagesSlice.reducer
+export const { getAllBlocks } = blocksSlice.actions;
+export default blocksSlice.reducer
