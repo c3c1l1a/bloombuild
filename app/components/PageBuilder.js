@@ -1,12 +1,5 @@
-import { useDispatch, useSelector} from 'react-redux';
-import { getAllBlocks } from '../redux/reducers/blocks';
+import Block from './block';
 
 export default function PageBuilder () {
-	const dispatch = useDispatch();
-	const blocks = useSelector(state => state);
-	console.log(blocks);
-
-	return (
-		<div>My page builder</div>
-	);
+	return (<Block />);
 }
