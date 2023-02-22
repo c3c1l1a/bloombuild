@@ -1,5 +1,5 @@
 export default function Text () {
 	return (
-		<p>This is a text block</p>
+		<p className="p-5 bg-red-200 rounded">This is a text block</p>
 	);
 }

@@ -3,7 +3,6 @@ import Column from './column';
 import Text from './text';
 
 export default function Block ({ block }) {
-		console.log(block);
 		switch(block.type) {
 			case 'Main':
 				if(block.children){

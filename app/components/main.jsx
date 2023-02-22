@@ -1,5 +1,5 @@
 export default function Main({ children }) {
 	return (
-		<div>{ children }</div>
+		<div className="flex border-solid border-2 m-5">{ children }</div>
 	);
 }
