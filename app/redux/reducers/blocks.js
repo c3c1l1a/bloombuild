@@ -1,25 +1,27 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-const initialState = [
-	{ 
-		type: 'Column',
-		children: [
-			{ type: 'Text'},
-			{ type: 'Text'},
-			{ type: 'Text'},
-		]
-	},
-	{ 
-		type: 'Column',
-	}
-];
+const initialState = {
+	type: 'Main',
+	children: [
+		{ 
+			type: 'Column',
+			children: [
+				{ type: 'Text'},
+				{ type: 'Text'},
+				{ type: 'Text'},
+			]
+		},
+		{ 
+			type: 'Column',
+		}
+	]
+}
 
-
-const blocksSlice = createSlice({
-	name: 'blocks',
+const blockSlice = createSlice({
+	name: 'block',
 	initialState,
 	reducers: {
-		getAllBlocks(state, action){
+		getBlock(state, action){
 			console.log(state);
 			return state;
 		}
@@ -27,5 +29,5 @@ const blocksSlice = createSlice({
 });
 
 
-export const { getAllBlocks } = blocksSlice.actions;
-export default blocksSlice.reducer
+export const { getBlock } = blockSlice.actions;
+export default blockSlice.reducer
