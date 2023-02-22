@@ -1,5 +1,4 @@
 import { useDispatch, useSelector} from 'react-redux';
-//import { getBlock } from '../redux/reducers/blocks';
 import Block from './block';
 
 export default function PageBuilder () {

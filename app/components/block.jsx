@@ -25,7 +25,7 @@ export default function Block ({ block }) {
 					);
 				} else return <Column />;
 			case 'Text': 
-				return (<Text>This is text in a column</Text>);
+				return (<Text item={block}>This is text in a column</Text>);
 			default:
 				return null;
 		}
