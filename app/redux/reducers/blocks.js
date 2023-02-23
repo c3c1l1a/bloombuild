@@ -29,7 +29,7 @@ const blockSlice = createSlice({
 	initialState,
 	reducers: {
 		drop(state, action){
-			console.log(state, action)
+			console.log(action.payload);
 			return state;
 		}
 	},

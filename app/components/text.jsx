@@ -6,7 +6,6 @@ export default function Text({ item }) {
 	const dispatch = useDispatch();
 
 	const handleDragStart = (e) =>{
-		e.preventDefault()
 		dispatch(setDraggedItem(item));
 	}
 	return (
