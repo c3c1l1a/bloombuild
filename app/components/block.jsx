@@ -17,13 +17,13 @@ export default function Block ({ block }) {
 			case 'Column':
 				if (block.children){
 					return (
-						<Column>
+						<Column block={block}>
 							{block.children.map((child, index) => {
 								return (<Block key={index} block={child}/>);
 							})}
 						</Column>
 					);
-				} else return <Column />;
+				} else return <Column block={block}/>;
 			case 'Text': 
 				return (<Text item={block}>This is text in a column</Text>);
 			default:
