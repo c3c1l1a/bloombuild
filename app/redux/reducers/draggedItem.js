@@ -7,8 +7,7 @@ const draggedItemSlice = createSlice({
 	initialState,
 	reducers: {
 		setDraggedItem(state, action){
-			console.log(state, action)
-			return state;
+			return action.payload;
 		}
 	},
 });

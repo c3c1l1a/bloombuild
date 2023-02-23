@@ -7,7 +7,7 @@ export default function Text({ item }) {
 
 	const handleDragStart = (e) =>{
 		e.preventDefault()
-		dispatch(setDraggedItem());
+		dispatch(setDraggedItem(item));
 	}
 	return (
 		<p className="p-5 bg-red-200 rounded"
