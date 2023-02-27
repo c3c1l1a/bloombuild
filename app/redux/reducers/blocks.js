@@ -1,5 +1,4 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { current } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
 	id: 'main-1',
@@ -56,8 +55,6 @@ function addAtNewPosition(state, draggedItem, newParent){
 			});
 		}
 	}
-	
-	//console.log(newParent.children);
 }
 
 
