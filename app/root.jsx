@@ -1,3 +1,6 @@
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import store from './redux/configureStore';
 import { json } from "@remix-run/node";
 import {
   Links,
@@ -29,17 +32,19 @@ export async function loader({ request }) {
 
 export default function App() {
   return (
-    <html lang="en" className="h-full">
-      <head>
-        <Meta />
-        <Links />
-      </head>
-      <body className="h-full">
-        <Outlet />
-        <ScrollRestoration />
-        <Scripts />
-        <LiveReload />
-      </body>
-    </html>
+    <Provider store={store}>
+      <html lang="en" className="h-full">
+        <head>
+          <Meta />
+          <Links />
+        </head>
+        <body className="h-full">
+          <Outlet />
+          <ScrollRestoration />
+          <Scripts />
+          <LiveReload />
+        </body>
+      </html>
+    </Provider>
   );
 }
