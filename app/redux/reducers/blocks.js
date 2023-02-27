@@ -22,16 +22,22 @@ const initialState = {
 		{ 
 			id: 'col-2',
 			type: 'Column',
+			children: [
+				{ 
+					id: 'text-3',
+					type: 'Text'
+				},
+			]
 		}
 	]
 }
 
-function removeItem (state, draggedItem){
+function removeAtPrevPosition (state, draggedItem){
 	if (state.children) {
 		const filteredChild = state.children.filter((child) => child.id === draggedItem.id);
 		if (filteredChild.length === 0){
 			state.children.map((child) => {
-				return removeItem(child, draggedItem)
+				return removeAtPrevPosition(child, draggedItem)
 			});
 		} else {
 			const filteredChildren = state.children.filter((child) => child.id !== draggedItem.id)
@@ -40,12 +46,29 @@ function removeItem (state, draggedItem){
 	};
 }
 
+function addAtNewPosition(state, draggedItem, newParent){
+	if (state.id === newParent.id )
+		return state.children.push(draggedItem);
+	else {
+		if (state.children){
+			state.children.map((item) => {
+				return addAtNewPosition(item, draggedItem, newParent);
+			});
+		}
+	}
+	
+	//console.log(newParent.children);
+}
+
+
+
 const blockSlice = createSlice({
 	name: 'block',
 	initialState,
 	reducers: {
 		drop(state, action){
-			removeItem(state, action.payload.draggedItem);
+			removeAtPrevPosition(state, action.payload.draggedItem);
+			addAtNewPosition(state, action.payload.draggedItem, action.payload.parent);
 			return state;
 		}
 	},

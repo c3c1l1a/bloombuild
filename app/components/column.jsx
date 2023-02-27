@@ -17,7 +17,7 @@ export default function Column ({ children, block }) {
   }
 
   const handleDrop = (e) =>{
-		dispatch(drop({draggedItem, columnItem}));
+		dispatch(drop({draggedItem, parent:columnItem}));
 	}
 
   return (
