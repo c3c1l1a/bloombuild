@@ -36,3 +36,21 @@ model Note {
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   userId String
 }
+
+
+model Page {
+  id String @id 
+  route String
+}
+
+model Block {
+  id String @id
+  type String
+}
+
+model PageBlock {
+  id String @id
+  page_id Page @relation(references: [id])
+  block_id Block @relation(references: [id])
+}
+
