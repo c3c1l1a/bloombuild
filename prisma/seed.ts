@@ -40,6 +40,24 @@ async function seed() {
     },
   });
 
+  const column = await prisma.block.create({
+    data: {
+      blockType: 'Column',
+    }
+  })
+
+  const page = await prisma.page.create({
+    data: {
+      route: "/",
+      blocks: {
+        connect: [
+          {id : column.id}
+        ]
+      }
+    }
+  })
+
+  
   console.log(`Database has been seeded. 🌱`);
 }
 

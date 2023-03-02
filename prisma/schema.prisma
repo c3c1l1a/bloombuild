@@ -37,20 +37,28 @@ model Note {
   userId String
 }
 
-
 model Page {
-  id String @id 
+  id    Int    @id @default(autoincrement())
   route String
+
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+  blocks    Block[]
 }
 
 model Block {
-  id String @id
-  type String
+  id   Int    @id @default(autoincrement())
+  blockType String
+
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+  pages     Page[]
 }
 
-model PageBlock {
-  id String @id
-  page_id Page @relation(references: [id])
-  block_id Block @relation(references: [id])
+model BlockPage {
+  id   Int    @id @default(autoincrement())
+  page    Page   @relation(references: [id], fields: [pageId])
+  block   Block  @relation(references: [id], fields: [blockId])
+  pageId  Int
+  blockId Int
 }
-
