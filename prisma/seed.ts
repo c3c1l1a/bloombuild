@@ -40,7 +40,13 @@ async function seed() {
     },
   });
 
-  const column = await prisma.block.create({
+  const column1 = await prisma.block.create({
+    data: {
+      blockType: 'Column',
+    }
+  })
+
+  const column2 = await prisma.block.create({
     data: {
       blockType: 'Column',
     }
@@ -51,7 +57,8 @@ async function seed() {
       route: "/",
       blocks: {
         connect: [
-          {id : column.id}
+          {id: column1.id},
+          {id: column2.id}
         ]
       }
     }
